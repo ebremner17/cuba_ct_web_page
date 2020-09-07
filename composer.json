@@ -1,0 +1,7 @@
+{
+  "name": "ebremner17/cuba_ct_web_page",
+  "description": "Web pages for CUBA/ACCAU sites.",
+  "type": "drupal-custom-module",
+  "homepage": "https://github.com/ebremner17/cuba_ct_web_page",
+  "keywords": ["Drupal"]
+}
