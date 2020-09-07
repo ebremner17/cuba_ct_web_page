@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cuba_wp_section
+    - node.type.cuba_ct_web_page
+    - paragraphs.paragraphs_type.cuba_pt_section
+  module:
+    - entity_reference_revisions
+id: node.cuba_ct_web_page.field_cuba_wp_section
+field_name: field_cuba_wp_section
+entity_type: node
+bundle: cuba_ct_web_page
+label: Section
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      cuba_pt_section: cuba_pt_section
+    target_bundles_drag_drop:
+      cuba_pt_copy_text:
+        weight: 6
+        enabled: false
+      cuba_pt_image:
+        weight: 7
+        enabled: false
+      cuba_pt_layout:
+        weight: 8
+        enabled: false
+      cuba_pt_remote_video:
+        weight: 9
+        enabled: false
+      cuba_pt_section:
+        enabled: true
+        weight: 10
+field_type: entity_reference_revisions

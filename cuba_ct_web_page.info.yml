@@ -1,0 +1,16 @@
+name: 'Cuba web page'
+description: 'Provides web pages for CUBA/ACCAU'
+type: module
+core_version_requirement: ^9
+dependencies:
+  - content_translation
+  - cuba_paragraphs
+  - entity_reference_revisions
+  - field
+  - language
+  - layout_builder
+  - menu_ui
+  - node
+  - paragraphs
+  - path
+  - user
