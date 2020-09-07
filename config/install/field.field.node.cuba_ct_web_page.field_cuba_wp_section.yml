@@ -14,7 +14,7 @@ bundle: cuba_ct_web_page
 label: Section
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
@@ -24,6 +24,9 @@ settings:
     target_bundles:
       cuba_pt_section: cuba_pt_section
     target_bundles_drag_drop:
+      cuba_pt_captioned_image:
+        weight: 7
+        enabled: false
       cuba_pt_copy_text:
         weight: 6
         enabled: false

@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: cuba_pa_web_pages
+label: 'Cuba web pages'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  4b71624f-3e1b-435d-8732-98d7621aec4c:
+    id: node_type
+    bundles:
+      cuba_ct_web_page: cuba_ct_web_page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 4b71624f-3e1b-435d-8732-98d7621aec4c
+  1a4367fd-a895-485d-911e-13034b914509:
+    id: language
+    langcodes:
+      en: en
+      fr: fr
+    negate: false
+    context_mapping:
+      language: 'node:langcode:language'
+    uuid: 1a4367fd-a895-485d-911e-13034b914509
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
