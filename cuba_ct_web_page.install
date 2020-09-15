@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall for Web Page Content Type.
+ */
+
+use Drupal\layout_builder\Section;
+use Drupal\layout_builder\SectionComponent;
+use Drupal\node\Entity\Node;
+use Drupal\pathauto\PathautoState;
+
+/**
+ * Implements hook_install().
+ */
+function cuba_ct_web_page_install() {
+
+  // Create a Home web page with alias 'home'.
+  $node = Node::create([
+    'type' => 'cuba_ct_web_page',
+    'langcode' => 'en',
+    'uid' => 1,
+    'title' => 'Privacy policy',
+    'status' => 1,
+    'path' => [
+      'alias' => '/privacy-policy',
+      'pathauto' => PathautoState::SKIP,
+    ],
+  ]);
+
+  // Save the node.
+  $node->save();
+
+  // Create a Home web page with alias 'home'.
+  $node = Node::create([
+    'type' => 'cuba_ct_web_page',
+    'langcode' => 'en',
+    'uid' => 1,
+    'title' => 'Home',
+    'status' => 1,
+    'path' => [
+      'alias' => '/home',
+      'pathauto' => PathautoState::SKIP,
+    ],
+  ]);
+
+  // Save the node.
+  $node->save();
+
+  // Set the front page to 'home'.
+  \Drupal::configFactory()
+    ->getEditable('system.site')
+    ->set('page.front', '/home')
+    ->save();
+}
