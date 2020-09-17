@@ -1,0 +1,40 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter() for \Drupal\node\NodeForm.
+ *
+ * Update parent item based on conference name selection.
+ */
+function cuba_ct_web_page_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Ensure that we are on a web page.
+  if ($form_id == 'node_cuba_ct_web_page_form') {
+
+    // Make menu open and selected.
+    $form['menu']['#open'] = TRUE;
+    $form['menu']['enabled']['#default_value'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Ensure that form alter for conference section runs last.
+ */
+function cuba_ct_web_page_module_implements_alter(&$implementations, $hook) {
+
+  // If the hook is form alter, move conference section to last.
+  if ($hook == 'form_alter') {
+
+    // Move my_module_form_alter() to the end of the list.
+    // \Drupal::moduleHandler()->getImplementations()
+    // iterates through $implementations with a foreach loop which PHP iterates
+    // in the order that the items were added, so to move an item to the end of
+    // the array, we remove it and then add it.
+    $group = $implementations['cuba_ct_web_page'];
+    unset($implementations['cuba_ct_web_page']);
+    $implementations['cuba_ct_web_page'] = $group;
+  }
+}
